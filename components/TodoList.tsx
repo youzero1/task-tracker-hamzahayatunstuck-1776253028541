@@ -79,12 +79,12 @@ export default function TodoList() {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="What needs to be done?"
-          className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition-colors placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+          className="flex-1 rounded-lg border border-purple-500/30 bg-white/5 backdrop-blur-sm px-4 py-3 text-sm text-gray-100 shadow-sm outline-none transition-colors placeholder:text-purple-300/40 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/30"
         />
         <button
           onClick={addTodo}
           disabled={inputValue.trim().length === 0}
-          className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 px-5 py-3 text-sm font-medium text-white shadow-sm transition-all hover:from-purple-600 hover:to-cyan-600 hover:shadow-lg hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Add
         </button>
@@ -100,8 +100,8 @@ export default function TodoList() {
                 onClick={() => setFilter(btn.value)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
                   filter === btn.value
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-purple-500 text-white shadow-md shadow-purple-500/30'
+                    : 'bg-white/5 text-purple-300/70 hover:bg-white/10 hover:text-purple-200'
                 }`}
               >
                 {btn.label}
@@ -109,13 +109,13 @@ export default function TodoList() {
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-purple-300/60">
               {activeCount} item{activeCount !== 1 ? 's' : ''} left
             </span>
             {completedCount > 0 && (
               <button
                 onClick={clearCompleted}
-                className="text-xs text-red-500 transition-colors hover:text-red-700"
+                className="text-xs text-pink-400/80 transition-colors hover:text-pink-300"
               >
                 Clear completed
               </button>
@@ -140,19 +140,19 @@ export default function TodoList() {
       {/* Empty states */}
       {todos.length === 0 && (
         <div className="mt-12 flex flex-col items-center text-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
-            <svg className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/20">
+            <svg className="h-8 w-8 text-purple-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <p className="mt-4 text-sm font-medium text-gray-500">No todos yet</p>
-          <p className="mt-1 text-xs text-gray-400">Add your first todo above to get started</p>
+          <p className="mt-4 text-sm font-medium text-purple-300/70">No todos yet</p>
+          <p className="mt-1 text-xs text-purple-300/40">Add your first todo above to get started</p>
         </div>
       )}
 
       {todos.length > 0 && filteredTodos.length === 0 && (
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-purple-300/60">
             No {filter} todos found
           </p>
         </div>

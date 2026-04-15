@@ -38,13 +38,13 @@ export default function TodoItem({
   };
 
   return (
-    <li className="group flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm transition-all hover:shadow-md">
+    <li className="group flex items-center gap-3 rounded-lg border border-purple-500/20 bg-white/5 backdrop-blur-sm px-4 py-3 shadow-sm transition-all hover:shadow-lg hover:shadow-purple-500/10 hover:bg-white/10">
       <button
         onClick={() => onToggle(todo.id)}
         className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
           todo.completed
-            ? 'border-emerald-500 bg-emerald-500 text-white'
-            : 'border-gray-300 hover:border-emerald-400'
+            ? 'border-cyan-400 bg-cyan-400 text-slate-900'
+            : 'border-purple-400/50 hover:border-cyan-400'
         }`}
         aria-label={todo.completed ? 'Mark as incomplete' : 'Mark as complete'}
       >
@@ -62,7 +62,7 @@ export default function TodoItem({
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditText(e.target.value)}
           onBlur={handleSubmitEdit}
           onKeyDown={handleKeyDown}
-          className="flex-1 rounded border border-blue-300 px-2 py-1 text-sm outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 rounded border border-purple-400/50 bg-slate-800 px-2 py-1 text-sm text-gray-100 outline-none focus:ring-2 focus:ring-purple-400"
           autoFocus
         />
       ) : (
@@ -72,7 +72,7 @@ export default function TodoItem({
             setEditText(todo.text);
           }}
           className={`flex-1 cursor-pointer text-sm select-none transition-colors ${
-            todo.completed ? 'text-gray-400 line-through' : 'text-gray-800'
+            todo.completed ? 'text-purple-300/40 line-through' : 'text-gray-200'
           }`}
         >
           {todo.text}
@@ -81,7 +81,7 @@ export default function TodoItem({
 
       <button
         onClick={() => onDelete(todo.id)}
-        className="flex-shrink-0 rounded p-1 text-gray-400 opacity-0 transition-all hover:bg-red-50 hover:text-red-500 group-hover:opacity-100"
+        className="flex-shrink-0 rounded p-1 text-purple-300/40 opacity-0 transition-all hover:bg-pink-500/20 hover:text-pink-400 group-hover:opacity-100"
         aria-label="Delete todo"
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
